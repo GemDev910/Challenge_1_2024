@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        
+        .dark-mode {
+            background-color: #181818;
+            color: #f0f0f0;
+        }
+
+        .running-text-box {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 80px;
+            width: 300vw;
+            background-color: gray;
+            display: flex;
+            align-items: center;
+        }
+
+        .running-text-box > p {
+            background-color: white;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0 50px;
+            font-size: 18pt;
+            position: relative;
+            animation: runningText 10s forwards;
+        }
+
+        @keyframes runningText {
+            from {
+                left: 0;
+            }
+            to {
+                left: -1000px;
+            }
+        }
+
+        div.container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section.page {
+            width: 100%;
+            min-height: 100vh;
+            background-color: red;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+        }
+
+        section.page.one {
+            gap: 300pt;
+            background-image: url(Bg.png);
+        }
+
+        section.page.one > div > h1 {
+            font-size: 30pt;
+        }
+
+        section.page.two, section.page.three, section.page.four {
+            justify-content: space-evenly;
+            padding: 10px;
+            background-image: url(Bg.png);
+        }
+
+        div.card {
+            padding: 10pt;
+            width: 250pt;
+            min-height: 300pt;
+            background-color: gray;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        div.circle {
+            width: 150pt;
+            height: 150pt;
+            border-radius: 100px;
+            background-color: aqua;
+        }
+
+        div.line {
+            width: 200px;
+            height: 3px;
+            background-color: black;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .guest-name p {
+            font-size: 20pt;
+        }
+
+        #timer-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #timer {
+            font-size: 24pt;
+            margin-top: 20px;
+            white-space: nowrap;
+            display: inline-block;
+            animation: runningText 10s linear infinite;
+        }
+
+        @keyframes runningText {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section.page.one, section.page.two, section.page.three, section.page.four {
+                padding: 10px;
+            }
+
+            div.card {
+                width: 90%;
+                min-height: auto;
+            }
+
+            div.circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            section.page.one > div > h1 {
+                font-size: 24pt;
+            }
+
+            #timer {
+                font-size: 18pt;
+            }
+        }
+
+        @media (max-width: 480px) {
+            div.card {
+                width: 100%;
+                padding: 5pt;
+            }
+
+            div.circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            section.page.one > div > h1 {
+                font-size: 18pt;
+            }
+
+            #timer {
+                font-size: 16pt;
+            }
+        }
+
+       
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()"> Switch Mode</button>
+    <div class="container">
+        <section class="page one">
+            <div class="title">
+                <p>The Wedding Of</p>
+                <h1>August & Catharina</h1>
+                <p>Monday, 01 August 2033</p>
+                <p>Conservatorium Hotel Amsterdam</p>
+                <img src="Wedding.jpg" alt="" class="Image">
+            </div>
+            <div class="guest-name">
+                <p>Dear</p>
+                <p>Kiyotaka Robert</p>
+            </div>
+            <div id="timer-container">
+                <div id="timer"></div>
+            </div>
+        </section>
+        <section class="page two">
+            <h2>The Beloved</h2>
+            <h1>August & Catharina</h1>
+            <p>Time have showed its magic once again by uniting this 2 individual by marriage linking forever</p>
+            <div class="card">
+                <div class="circle"><img src="Yor.jpg" alt="Yor" class="Image"></div>
+                <h1>Catharina Lord Florence, MSc</h1>
+                <div class="line"></div>
+                <p>The First Daughter Of</p>
+                <p>Mr Arion Lord van aede </p>
+                <p>&</p>
+                <p>Mrs Aliana Florence</p>
+            </div>
+        </section>
+        <section class="page three">
+            <p>We are very delighted to invite you on this joyous moments and hope to share our happiness</p>
+            <div class="card">
+                <div class="circle"><img src="Loid.jpg" alt="Loid" class="Image"></div>
+                <h1>August Van Hemel, PhD</h1>
+                <div class="line"></div>
+                <p>Second Son</p>
+                <p>Mr Thendeur de rijk</p>
+                <p>&</p>
+                <p>Mrs Sicillia Heart</p>
+            </div>
+        </section>
+        <section class="page four">
+            <h1>Thank You</h1>
+        </section>
+    </div>
+    <script>
+        
+        var countDownDate = new Date("Aug 1, 2033 00:00:00").getTime();
+
+      
+        var x = setInterval(function() {
+           
+            var now = new Date().getTime();
+
+            
+            var distance = countDownDate - now;
+
+          
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+           
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+       
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+        }
+    </script>
+</body>
+</html>
